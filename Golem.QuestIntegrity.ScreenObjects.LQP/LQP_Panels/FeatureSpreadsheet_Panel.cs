@@ -28,7 +28,7 @@ namespace Golem.QuestIntegrity.ScreenObjects.LQP.LQP_Panels
         //For using the panel data we have to manage the project name
         //Initializing elements based on the project name
         private static string _projectName = Constants.getProjectName();
-        private static string _panelPath = "/LifeQuest™ Pipeline/panelContainer1/Features: " + _projectName + "/!BLANK!/Feature Spreadsheet";
+        private static string _panelPath = "/LifeQuest™ Pipeline/DockPanel{1}/Features: " + _projectName + "/!BLANK!/Feature Spreadsheet";
 
         private static string _featureDetailsPath = _panelPath +
                                                     "/splitContainerControl1/Panel2/FeatureSpreadsheet_FeatureSpreadsheetTabbedPages/FeatureSpreadsheet_DetailsSection/FeatureSpreadsheet_FeatureSpreadsheetDetailsSectionUC/FeatureSpreadsheetDetailsSectionUC_FeatureSpreadsheetDetailsSectionLayoutControl";

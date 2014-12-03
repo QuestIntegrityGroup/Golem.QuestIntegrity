@@ -40,7 +40,7 @@ namespace Golem.QuestIntegrity.ScreenObjects.LQP.LQP_Panels
             //This path is valid for the build releases
             //_panelPath = "/LifeQuest™ Pipeline/panelContainer2/Data Inspector/!BLANK!/Data Inspector/toolStripContainer1";
             //This path is valid for Michael's releases
-            _panelPath = "/LifeQuest™ Pipeline/panelContainer2/Data Inspector/!BLANK!/Data Inspector/toolStripContainer1";
+            _panelPath = "/LifeQuest™ Pipeline/DockPanel/Data Inspector/!BLANK!/Data Inspector/toolStripContainer1";
             DataInspectorValues = new PurpleTable("DataInspectorTable_DefaultView", _panelPath+"/!BLANK!/DataInspector_ViewSplit/ForceGrade:/DataInspector_ResultsListView");
             DataInspector_SearchButton = new PurpleButton("DataInspectorSearchButton", _panelPath + "/!BLANK!{1}/toolStrip1/DataInspector_ToggleSearchPanel");
     

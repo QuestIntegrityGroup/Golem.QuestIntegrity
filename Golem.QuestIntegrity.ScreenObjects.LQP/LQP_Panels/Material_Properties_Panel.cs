@@ -16,7 +16,7 @@ namespace Golem.QuestIntegrity.ScreenObjects.LQP.LQP_Panels
         /*  This panel is used for assigning material properties.  These affect calculations regarding Nominal thickness and other values
          * 
          * */
-        private string _panelPath = "/LifeQuest™ Pipeline/panelContainer1/Material Properties/!BLANK!/Material Properties";
+        private string _panelPath = "/LifeQuest™ Pipeline/DockPanel{1}/Material Properties/!BLANK!/Material Properties";
         private string PurplePanelPath;
         private LQP_PurplePanel panel;
         private string rowSelectedBefore;

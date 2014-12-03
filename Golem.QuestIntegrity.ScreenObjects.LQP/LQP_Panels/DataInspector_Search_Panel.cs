@@ -9,7 +9,7 @@ namespace Golem.QuestIntegrity.ScreenObjects.LQP.LQP_Panels
     public class DataInspector_Search_Panel : BasePanel<DataInspector_Search_Panel>
     {
         private const string GeneralLocator =
-            "/LifeQuest™ Pipeline/panelContainer2/Data Inspector/!BLANK!/Data Inspector/toolStripContainer1/!BLANK!/DataInspector_ViewSplit";
+            "/LifeQuest™ Pipeline/DockPanel/Data Inspector/!BLANK!/Data Inspector/toolStripContainer1/!BLANK!/DataInspector_ViewSplit";
         private PurpleButton clearButton = new PurpleButton("ClearButton", "/LifeQuest™ Pipeline/panelContainer2/Data Inspector/!BLANK!/Data Inspector/toolStripContainer1/!BLANK!{1}/toolStrip1/DataInspector_ClearSelection");
 
         //Search Panel Toolstrip buttons
