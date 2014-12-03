@@ -156,7 +156,7 @@ namespace Golem.QuestIntegrity.ScreenObjects.LQP.LQP_Panels
         //Constructor
         public FilterData_Panel()
         {
-            _panelPath = "/LifeQuest™ Pipeline/DockPanel{1}/Filter Data/!BLANK!/Filter Data";
+            _panelPath = "/LifeQuest™ Pipeline/DockPanel{1}/Filter Data/!BLANK!/Filter Data/";
             //Range SubPanel
             #region Range SubPanel
             //Custom Range Region - Used when Custom Range is selected
