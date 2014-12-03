@@ -33,8 +33,6 @@ namespace Golem.QuestIntegrity.Tests.LQP
         {
             //Selection: Joint
             //Constraint to: Wall thickness, greater than; Replacement values: specified values
-            string filterType = "Wall Thickness";
-            bool greater = true;
 
             DataInspectorValueContainer WtBeforeValue = SplashScreen.StartOnSplash()
                 .CloseSplashScreen()
@@ -51,25 +49,13 @@ namespace Golem.QuestIntegrity.Tests.LQP
                 .UseFilterDataPanel()
                 .SwitchToJoint(15)
                 .Criteria_ThicknessGT(true, WtBeforeValue.Value.ToString())
+                .ApplyFilter()
                 .GoToMain()
                 .UseDataInspector()
                 .GetDataValue(DIRow.WallThickness);
 
+            Assert.AreNotEqual(WtBeforeValue.Value, WtAftervalue.Value);
 
-            //SplashScreen.StartOnSplash()
-            //.CloseSplashScreen()
-            //.OpenProject()
-            //.Use2DPipe()
-            //.ClickIntoPipe()
-            //.UseFilterDataPanel()
-            //.SwitchToJoint(15)
-            //.GetValuesBeforeFilter(filterType)
-            //.FilterSetConstrainTo_WT(greater)
-            //.ChangeReplaceValuesBySpecifiedValue_WT()
-            //.ApplyFilter()
-            //.GetValuesAfterFilter()
-            //.CompareValues(filterType, greater)
-            //;
         }
         
         [Test]
@@ -78,23 +64,29 @@ namespace Golem.QuestIntegrity.Tests.LQP
         {
             //Selection: Joint
             //Constraint to: Wall thickness, less than; Replacement values: specified values
-            string filterType = "Wall Thickness";
-            bool greater = false;
 
-            SetInitialValues();
-            SplashScreen.StartOnSplash()
-            .CloseSplashScreen()
-            .OpenProject(TestFileLocation)
-            .Use2DPipe()
-            .ClickIntoPipe()
-            .UseFilterDataPanel()
-            .SwitchToJoint(16)
-            .GetValuesBeforeFilter(filterType)
-            .Criteria_ThicknessGT(greater)
-            .ChangeReplaceValuesBySpecifiedValue_WT()
-            .ApplyFilter()
-            .GetValuesAfterFilter()
-            .CompareValues(filterType,greater);
+            DataInspectorValueContainer WtBeforeValue = SplashScreen.StartOnSplash()
+                .CloseSplashScreen()
+                .OpenProject()
+                .UseFilterDataPanel()
+                .SwitchToJoint(16)
+                .GoToMain()
+                .Use2DPipe()
+                .ClickIntoPipe()
+                .UseDataInspector()
+                .GetDataValue(DIRow.WallThickness);
+
+            DataInspectorValueContainer WtAftervalue = MainScreen.StartOnMain()
+                .UseFilterDataPanel()
+                .SwitchToJoint(16)
+                .Criteria_ThicknessGT(true, WtBeforeValue.Value.ToString())
+                .ApplyFilter()
+                .GoToMain()
+                .UseDataInspector()
+                .GetDataValue(DIRow.WallThickness);
+
+            Assert.AreNotEqual(WtBeforeValue.Value, WtAftervalue.Value);
+
         }
 
         [Test]
@@ -103,23 +95,29 @@ namespace Golem.QuestIntegrity.Tests.LQP
         {
             //Selection: Joint
             //Constraint to: Inside Radius, greater than; Replacement values: specified values
-            string filterType = "Inside Radius";
-            bool greater = true;
 
-            SetInitialValues();
-            SplashScreen.StartOnSplash()
-            .CloseSplashScreen()
-            .OpenProject(TestFileLocation)
-            .Use2DPipe()
-            .ClickIntoPipe()
-            .UseFilterDataPanel()
-            .SwitchToJoint(15)
-            .GetValuesBeforeFilter(filterType)
-            .FilterSetConstrainTo_IR(greater)
-            .ChangeReplaceValuesBySpecifiedValue_IR()
-            .ApplyFilter()
-            .GetValuesAfterFilter()
-            .CompareValues(filterType, greater);
+            DataInspectorValueContainer WtBeforeValue = SplashScreen.StartOnSplash()
+                .CloseSplashScreen()
+                .OpenProject()
+                .UseFilterDataPanel()
+                .SwitchToJoint(15)
+                .GoToMain()
+                .Use2DPipe()
+                .ClickIntoPipe()
+                .UseDataInspector()
+                .GetDataValue(DIRow.InsideRadius);
+
+            DataInspectorValueContainer WtAftervalue = MainScreen.StartOnMain()
+                .UseFilterDataPanel()
+                .SwitchToJoint(15)
+                .Criteria_RadiusGT(true, WtBeforeValue.Value.ToString())
+                .ApplyFilter()
+                .GoToMain()
+                .UseDataInspector()
+                .GetDataValue(DIRow.InsideRadius);
+
+            Assert.AreNotEqual(WtBeforeValue.Value, WtAftervalue.Value);
+
         }
         
         [Test]
@@ -128,23 +126,29 @@ namespace Golem.QuestIntegrity.Tests.LQP
         {
             //Selection: Joint
             //Constraint to: Inside Radius, less than; Replacement values: specified values
-            string filterType = "Inside Radius";
-            bool greater = false;
 
-            SetInitialValues();
-            SplashScreen.StartOnSplash()
-            .CloseSplashScreen()
-            .OpenProject(TestFileLocation)
-            .Use2DPipe()
-            .ClickIntoPipe()
-            .UseFilterDataPanel()
-            .SwitchToJoint(16)
-            .GetValuesBeforeFilter(filterType)
-            .FilterSetConstrainTo_IR(greater)
-            .ChangeReplaceValuesBySpecifiedValue_IR()
-            .ApplyFilter()
-            .GetValuesAfterFilter()
-            .CompareValues(filterType, greater);
+            DataInspectorValueContainer WtBeforeValue = SplashScreen.StartOnSplash()
+                .CloseSplashScreen()
+                .OpenProject()
+                .UseFilterDataPanel()
+                .SwitchToJoint(16)
+                .GoToMain()
+                .Use2DPipe()
+                .ClickIntoPipe()
+                .UseDataInspector()
+                .GetDataValue(DIRow.InsideRadius);
+
+            DataInspectorValueContainer WtAftervalue = MainScreen.StartOnMain()
+                .UseFilterDataPanel()
+                .SwitchToJoint(16)
+                .Criteria_RadiusLT(true, WtBeforeValue.Value.ToString())
+                .ApplyFilter()
+                .GoToMain()
+                .UseDataInspector()
+                .GetDataValue(DIRow.InsideRadius);
+
+            Assert.AreNotEqual(WtBeforeValue.Value, WtAftervalue.Value);
+
         }
         
         [Test]
@@ -153,23 +157,28 @@ namespace Golem.QuestIntegrity.Tests.LQP
         {
             //Selection: Joint
             //Constraint to: Decentered Radius, greater than; Replacement values: specified values
-            string filterType = "Decentered Radius";
-            bool greater = true;
 
-            SetInitialValues();
-            SplashScreen.StartOnSplash()
-            .CloseSplashScreen()
-            .OpenProject(TestFileLocation)
-            .Use2DPipe()
-            .ClickIntoPipe()
-            .UseFilterDataPanel()
-            .SwitchToJoint(15)
-            .GetValuesBeforeFilter(filterType)
-            .FilterSetConstrainTo_DR(greater)
-            .ChangeReplaceValuesBySpecifiedValue_DR()
-            .ApplyFilter()
-            .GetValuesAfterFilter()
-            .CompareValues(filterType, greater);
+            DataInspectorValueContainer WtBeforeValue = SplashScreen.StartOnSplash()
+                .CloseSplashScreen()
+                .OpenProject()
+                .UseFilterDataPanel()
+                .SwitchToJoint(15)
+                .GoToMain()
+                .Use2DPipe()
+                .ClickIntoPipe()
+                .UseDataInspector()
+                .GetDataValue(DIRow.DecenteredRadius);
+
+            DataInspectorValueContainer WtAftervalue = MainScreen.StartOnMain()
+                .UseFilterDataPanel()
+                .SwitchToJoint(15)
+                .Criteria_DRadiusGT(true, WtBeforeValue.Value.ToString())
+                .ApplyFilter()
+                .GoToMain()
+                .UseDataInspector()
+                .GetDataValue(DIRow.DecenteredRadius);
+
+            Assert.AreNotEqual(WtBeforeValue.Value, WtAftervalue.Value);
         }
         
         [Test]
@@ -178,24 +187,28 @@ namespace Golem.QuestIntegrity.Tests.LQP
         {
             //Selection: Joint
             //Constraint to: Decentered Radius, less than; Replacement values: specified values
-            string filterType = "Decentered Radius";
-            bool greater = false;
 
-            SetInitialValues();
-            SplashScreen.StartOnSplash()
-            .CloseSplashScreen()
-            .OpenProject(TestFileLocation)
-            .Use2DPipe()
-            .ClickIntoPipe()
-            .UseFilterDataPanel()
-            .SwitchToJoint(16)
-            .GetValuesBeforeFilter(filterType)
-            .FilterSetConstrainTo_DR(greater)
-            .ChangeReplaceValuesBySpecifiedValue_DR()
-            .ApplyFilter()
-            .GetValuesAfterFilter()
-            .CompareValues(filterType, greater)
-            ;
+            DataInspectorValueContainer WtBeforeValue = SplashScreen.StartOnSplash()
+                .CloseSplashScreen()
+                .OpenProject()
+                .UseFilterDataPanel()
+                .SwitchToJoint(16)
+                .GoToMain()
+                .Use2DPipe()
+                .ClickIntoPipe()
+                .UseDataInspector()
+                .GetDataValue(DIRow.DecenteredRadius);
+
+            DataInspectorValueContainer WtAftervalue = MainScreen.StartOnMain()
+                .UseFilterDataPanel()
+                .SwitchToJoint(16)
+                .Criteria_DRadiusLT(true, WtBeforeValue.Value.ToString())
+                .ApplyFilter()
+                .GoToMain()
+                .UseDataInspector()
+                .GetDataValue(DIRow.DecenteredRadius);
+
+            Assert.AreNotEqual(WtBeforeValue.Value, WtAftervalue.Value);
         }
 
         [Test]
@@ -204,131 +217,65 @@ namespace Golem.QuestIntegrity.Tests.LQP
         {
             //Selection: Joint
             //Constraint to: Wall Thickness, less than; Replacement values: percentage
-            string filterType = "Wall Thickness";
-            bool greater = false;
 
-            SetInitialValues();
-            SplashScreen.StartOnSplash()
-            .CloseSplashScreen()
-            .OpenProject(TestFileLocation)
-            .Use2DPipe()
-            .ClickIntoPipe()
-            .UseFilterDataPanel()
-            .SwitchToJoint(14)
-            .GetValuesBeforeFilter(filterType)
-            .Criteria_ThicknessGT(greater)
-            .ChangeReplaceValuesByPercentage_WT()
-            .ApplyFilter()
-            .GetValuesAfterFilter()
-            .CompareValuesPercentage(filterType, greater)
-            ;
+            DataInspectorValueContainer WtBeforeValue = SplashScreen.StartOnSplash()
+                           .CloseSplashScreen()
+                           .OpenProject()
+                           .UseFilterDataPanel()
+                           .SwitchToJoint(16)
+                           .GoToMain()
+                           .Use2DPipe()
+                           .ClickIntoPipe()
+                           .UseDataInspector()
+                           .GetDataValue(DIRow.WallThickness);
+
+            DataInspectorValueContainer WtAftervalue = MainScreen.StartOnMain()
+                .UseFilterDataPanel()
+                .SwitchToJoint(16)
+                .Criteria_ThicknessLT(true, WtBeforeValue.Value.ToString())
+                .ApplyFilter()
+                .GoToMain()
+                .UseDataInspector()
+                .GetDataValue(DIRow.WallThickness);
+
+            Assert.AreNotEqual(WtBeforeValue.Value, WtAftervalue.Value);
+            
         }
         
-        [Test]
-        [Category("Filtering")]
-        public void LQP_0008_FogBugz5637_5629()
-        {
-            //Selection: Joint
-            //Constraint to: Inside Radius, less than; Replacement values: percentage
-            string filterType = "Inside Radius";
-            bool greater = false;
-
-            SetInitialValues();
-            SplashScreen.StartOnSplash()
-            .CloseSplashScreen()
-            .OpenProject(TestFileLocation)
-            .Use2DPipe()
-            .ClickIntoPipe()
-            .UseFilterDataPanel()
-            .SwitchToJoint(14)
-            .GetValuesBeforeFilter(filterType)
-            .FilterSetConstrainTo_IR(greater)
-            .ChangeReplaceValuesByPercentage_IR()
-            .ApplyFilter()
-            .GetValuesAfterFilter()
-            .CompareValuesPercentage(filterType, greater)
-            ;
-        }
         
-        [Test]
-        [Category("Filtering")]
-        public void LQP_0009_FogBugz5627_5629()
-        {
-            //Selection: Joint
-            //Constraint to: Decentered Radius, less than; Replacement values: percentage
-            string filterType = "Decentered Radius";
-            bool greater = false;
-
-            SetInitialValues();
-            SplashScreen.StartOnSplash()
-            .CloseSplashScreen()
-            .OpenProject(TestFileLocation)
-            .Use2DPipe()
-            .ClickIntoPipe()
-            .UseFilterDataPanel()
-            .SwitchToJoint(14)
-            .GetValuesBeforeFilter(filterType)
-            .FilterSetConstrainTo_DR(greater)
-            .ChangeReplaceValuesByPercentage_DR()
-            .ApplyFilter()
-            .GetValuesAfterFilter()
-            .CompareValuesPercentage(filterType, greater)
-            ;
-        }
-
-        [Test]
-        [Category("Filtering")]
-        public void LQP_0010_FogBugz5627_5629()
-        {
-            //Selection: Range
-            //Constraint to: Decentered Radius, less than; Replacement values: percentage
-            string filterType = "Decentered Radius";
-            bool greater = false;
-
-            SetInitialValues();
-            SplashScreen.StartOnSplash()
-            .CloseSplashScreen()
-            .OpenProject(TestFileLocation)
-            .Use2DPipe()
-            .ClickIntoPipe()
-            .UseFilterDataPanel()
-            .SwitchToJoint(12)
-            .SwitchToRange(12,13)
-            .GetValuesBeforeFilter(filterType)
-            .FilterSetConstrainTo_DR(greater)
-            .ChangeReplaceValuesByPercentage_DR()
-            .ApplyFilter(true, 60000) // This fuction has to sleep because a time out problem after applying the filter. This sleep time varies according to the range to filter
-            .GetValuesAfterFilter()
-            .CompareValuesPercentage(filterType, greater)
-            ;
-        }
-
         [Test]
         [Category("Filtering")]
         public void LQP_0011_FogBugz5630_UndoFilter()
         {
             //Constraint to: Wall thickness, greater than; Replacement values: specified values
-            string filterType = "Wall Thickness";
-            bool greater = true;
 
-            SetInitialValues();
-            SplashScreen.StartOnSplash()
-            .CloseSplashScreen()
-            .OpenProject(TestFileLocation)
-            .Use2DPipe()
-            .ClickIntoPipe()
-            .UseFilterDataPanel()
-            .SwitchToJoint(11)
-            .GetValuesBeforeFilter(filterType)
-            .Criteria_ThicknessGT(greater)
-            .ChangeReplaceValuesBySpecifiedValue_WT()
-            .ApplyFilter()
-            .GetValuesAfterFilter()
-            .CompareValues(filterType, greater)
-            .UndoLastFilter()
-            .GetValuesAfterFilter()
-            .CompareUndoneOrCancelledValues(filterType, greater)
-            ;
+            DataInspectorValueContainer WtBeforeValue = SplashScreen.StartOnSplash()
+                          .CloseSplashScreen()
+                          .OpenProject()
+                          .UseFilterDataPanel()
+                          .SwitchToJoint(16)
+                          .GoToMain()
+                          .Use2DPipe()
+                          .ClickIntoPipe()
+                          .UseDataInspector()
+                          .GetDataValue(DIRow.WallThickness);
+
+            DataInspectorValueContainer WtAftervalue = MainScreen.StartOnMain()
+                .UseFilterDataPanel()
+                .SwitchToJoint(16)
+                .Criteria_ThicknessLT(true, WtBeforeValue.Value.ToString())
+                .ApplyFilter()
+                .GoToMain()
+                .UseDataInspector()
+                .GetDataValue(DIRow.WallThickness);
+
+            DataInspectorValueContainer RevertedValue = MainScreen.StartOnMain()
+                .UseDataInspector()
+                .GetDataValue(DIRow.WallThickness);
+
+            Assert.AreEqual(WtBeforeValue.Value, RevertedValue.Value);
+
+           
         }
 
         [Test]
@@ -336,24 +283,27 @@ namespace Golem.QuestIntegrity.Tests.LQP
         public void LQP_0012_FogBugz5630_CancelFilter()
         {
             //Constraint to: Wall thickness, greater than; Replacement values: specified values
-            string filterType = "Wall Thickness";
-            bool greater = true;
 
-            SetInitialValues();
-            SplashScreen.StartOnSplash()
-            .CloseSplashScreen()
-            .OpenProject(TestFileLocation)
-            .Use2DPipe()
-            .ClickIntoPipe()
-            .UseFilterDataPanel()
-            .SwitchToJoint(11)
-            .GetValuesBeforeFilter(filterType)
-            .Criteria_ThicknessGT(greater)
-            .ChangeReplaceValuesBySpecifiedValue_WT()
-            .CancelFilter()
-            .GetValuesAfterFilter()
-            .CompareUndoneOrCancelledValues(filterType, greater)
-            ;
+            DataInspectorValueContainer WtBeforeValue = SplashScreen.StartOnSplash()
+                          .CloseSplashScreen()
+                          .OpenProject()
+                          .UseFilterDataPanel()
+                          .SwitchToJoint(16)
+                          .GoToMain()
+                          .Use2DPipe()
+                          .ClickIntoPipe()
+                          .UseDataInspector()
+                          .GetDataValue(DIRow.WallThickness);
+
+            DataInspectorValueContainer WtAftervalue = MainScreen.StartOnMain()
+                .UseFilterDataPanel()
+                .SwitchToJoint(16)
+                .Criteria_ThicknessLT(true, WtBeforeValue.Value.ToString())
+                .CancelFilter()
+                .UseDataInspector()
+                .GetDataValue(DIRow.WallThickness);
+
+            Assert.AreEqual(WtBeforeValue.Value, WtAftervalue.Value);
         }
 
         [Test]

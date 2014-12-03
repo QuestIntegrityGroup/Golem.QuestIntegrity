@@ -499,7 +499,7 @@ namespace Golem.QuestIntegrity.ScreenObjects.LQP.LQP_Panels
         /// <returns></returns>
         public FilterData_Panel Criteria_ThicknessGT(bool enabled, string filterText)
         {
-               CTWallThickGreat_CheckBox.Checked = enabled;
+            CTWallThickGreat_CheckBox.Checked = enabled;
             if (enabled)
             {
                 CTWallThickGreat_Text.Text = filterText;
@@ -650,10 +650,10 @@ namespace Golem.QuestIntegrity.ScreenObjects.LQP.LQP_Panels
             return this;
         }
 
-        public FilterData_Panel CancelFilter()
+        public MainScreen CancelFilter()
         {
             Cancel_Button.Click();
-            return this;
+            return new MainScreen();
         }
 
         public FilterData_Panel HistoryFilter()
